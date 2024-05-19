@@ -34,9 +34,9 @@ body {
 .head-wrapper ol li {
   margin-left: 40px;
   cursor: pointer;
-  color: #7b8182;
 }
-.head-wrapper ol li:nth-child(1) {
+
+.hdListColor {
   color: #3a8fd8;
 }
 .second-wrapper {
@@ -226,4 +226,67 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* css for about page  */
+
+.main-secation {
+  height: calc(100vh - 12vh);
+  width: 100vw;
+  background-image: linear-gradient(0deg, #62c8df, #85e4fa, #fff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.image-wrapper {
+  /* border: 1px solid black; */
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.first-image,
+.second-image,
+.third-image {
+  margin-top: -150px;
+  background-image: url(./download.jpg);
+  background-size: cover; /* Cover the entire element */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  height: 200px;
+  width: 200px;
+  border: 5px solid #22527c;
+  box-shadow: 0 0 20px 0 rgba(34, 110, 129, 0.307);
+  border-radius: 50%;
+  animation: floatAnimation 3s infinite alternate;
+}
+.second-image {
+  background-image: url(./download.jpg);
+}
+.third-image {
+  background-image: url(./download.jpg);
+}
+
+@keyframes floatAnimation {
+  0% {
+      transform: translateY(0);
+  }
+  100% {
+      transform: translateY(-10px); /* Adjust the distance as needed */
+  }
+}
+
+.name-section {
+  margin-top: 10px;
+  text-transform: uppercase;
+  color: #1f4851;
+  font-weight: bolder;
+  font-size: 20px;
+}
+.desc-section{
+  margin-top: 2px;
+  text-transform: uppercase;
+  font-size: 16px;
 }

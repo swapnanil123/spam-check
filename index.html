@@ -10,9 +10,17 @@
     <div class="head-wrapper">
       <span>spam checker</span>
       <ol>
-        <li>Home</li>
-        <li>About us</li>
-        <li>QnA</li>
+        <li
+          onclick="handlePageChange('index.html')"
+          id="home"
+          class="hdListColor"
+        >
+          Home
+        </li>
+        <li onclick="handlePageChange('about.html')" id="about" class="dom">
+          About us
+        </li>
+        <li onclick="handlePageChange('qna.html')" id="qna" class="dom">QnA</li>
       </ol>
     </div>
     <div class="second-wrapper">
@@ -50,8 +58,16 @@
       <div class="mode-wrapper">
         <ol>
           <li id="mode">Mode</li>
-          <li id="sms" onclick="handleChangeMode()" class="mode-changer">SMS</li>
-          <li id="email" onclick="handleChangeMode()" class="remove-mode-changer"">Email</li>
+          <li id="sms" onclick="handleChangeMode()" class="mode-changer">
+            SMS
+          </li>
+          <li
+            id="email"
+            onclick="handleChangeMode()"
+            class="remove-mode-changer"
+          >
+            Email
+          </li>
         </ol>
       </div>
       <div class="div-line-wrapper">
@@ -83,6 +99,39 @@
         emailElement.classList.toggle("remove-mode-changer");
       }
 
+      function handlePageChange(url) {
+        // Navigate to the new URL
+        window.location.href = url;
+      }
+
+      function addClassBasedOnURL() {
+        // Get the current URL and extract the last part of the URL
+        let currentURL = window.location.href;
+        let urlParts = currentURL.split("/");
+        let lastElement = urlParts[urlParts.length - 1];
+
+        // Handle empty last element if the URL ends with a slash
+        if (lastElement === "") {
+          lastElement = urlParts[urlParts.length - 2];
+        }
+
+        // Remove 'hdListColor' class from all list items
+        document.querySelectorAll(".head-wrapper ol li").forEach((li) => {
+          li.classList.remove("hdListColor");
+        });
+
+        // Add 'hdListColor' class to the appropriate list item based on the URL
+        if (lastElement === "index.html") {
+          document.getElementById("home").classList.add("hdListColor");
+        } else if (lastElement === "about.html") {
+          document.getElementById("about").classList.add("hdListColor");
+        } else if (lastElement === "qna.html") {
+          document.getElementById("qna").classList.add("hdListColor");
+        }
+      }
+
+      // Call the function when the page loads
+      window.onload = addClassBasedOnURL;
     </script>
   </body>
 </html>
