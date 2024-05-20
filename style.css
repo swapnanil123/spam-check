@@ -296,7 +296,7 @@ body {
 @media only screen and (max-width: 768px) {
   .main-secation {
     flex-direction: column;
-    padding-top: 150px;
+    padding-top: 120px;
   }
   .first-image,
   .second-image,
